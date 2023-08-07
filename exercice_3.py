@@ -1,7 +1,8 @@
 """Définit les classes propres à notre forum. ;)"""
 
+from abc import ABC
 
-class File:
+class File(ABC):
     """Fichier."""
 
     def __init__(self, name, size):
@@ -11,7 +12,8 @@ class File:
 
     def display(self):
         """Affiche le fichier."""
-        print(f"Fichier '{self.name}'.")
+        # print(f"Fichier '{self.name}'.")
+        pass
 
 
 class ImageFile(File):
@@ -19,8 +21,22 @@ class ImageFile(File):
 
     Pas plus à ajouter pour l'instant !
     """
+    def display(self):
+        """Affiche le fichier."""
+        # super().display()
+        print(f"Fichier '{self.name}'.")
 
-    pass
+class GIF(ImageFile):
+    
+    def display(self):
+        super().display()
+        print("GIF")
+
+class JPG(ImageFile):
+    
+    def jpg(self):
+        super().display()
+        print("JPG")
 
 
 class User:
@@ -87,9 +103,7 @@ class FilePost(Post):
 
     def __init__(self, user, time_posted, content, file):
         """Initialise le fichier."""
-        self.user = user
-        self.time_posted = time_posted
-        self.content = content
+        super().__init__(user, time_posted, content)
         self.file = file
 
     def display(self):
