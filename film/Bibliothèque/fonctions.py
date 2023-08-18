@@ -39,9 +39,9 @@ def friend_borrow(friends):
 
 
 hasard(films)
-borrow(friends)
+
 sort(films)
-friend_borrow(friends)
+
 
 print("Borrowed movies list: ")
 for friend, movies in borrow(friends):
